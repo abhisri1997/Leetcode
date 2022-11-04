@@ -34,7 +34,7 @@ public class Solution {
     }
     public int MergeSort(int[] A, int start, int end)
     {
-        if(start >= end) return 0;
+        if(start == end) return 0;
 
         int mid = start + ((end - start) >> 1);
 
