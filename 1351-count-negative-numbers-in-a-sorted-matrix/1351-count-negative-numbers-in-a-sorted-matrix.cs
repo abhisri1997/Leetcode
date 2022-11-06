@@ -5,10 +5,10 @@ public class Solution {
       while(start < end)
       {
         int mid = start + ((end - start) >> 1);
+        /* Find first occurence of -ve element */
         if(a[mid] >= 0) start = mid + 1;
         else end = mid;
       }
-      // Console.WriteLine(start + " " + (len - start));
       return a[start] < 0 ? len - start : 0;
     }
     public int CountNegatives(int[][] A) {
