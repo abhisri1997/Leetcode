@@ -21,6 +21,6 @@ public class Solution {
                     return false;
                 }
             }
-            return st.Count == 0 ? true : false;
+            return st.Count == 0;
     }
 }
