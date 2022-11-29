@@ -14,13 +14,6 @@ public class Solution {
           else
             i++;
         }
-        Console.WriteLine(j);
-        // StringBuilder sb = new StringBuilder(s);
-        // while(j < tLen)
-        // {
-        //   sb.Append(t[j]);
-        // }
-        // Console.Write(new string(sb));
         return tLen - j;
     }
 }
