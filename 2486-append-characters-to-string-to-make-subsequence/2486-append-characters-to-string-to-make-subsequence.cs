@@ -8,11 +8,9 @@ public class Solution {
         {
           if(s[i] == t[j]) 
           {
-            i++;
             j++;
           }
-          else
-            i++;
+          i++;
         }
         return tLen - j;
     }
