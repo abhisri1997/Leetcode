@@ -35,27 +35,16 @@ public class Solution {
           i--;
           st.Pop();
         }
-        foreach(int a in arr)
-        {
-          Console.Write(a + " ");
-        }
         List<ListNode> ansNodes = new List<ListNode>();
         temp = head;
-        Console.WriteLine();
         while(temp != null)
         {
-          Console.Write(temp.val + " ");
           if(temp.val == arr[i])
           {
             ansNodes.Add(temp);
           }
           temp = temp.next;
           i++;
-        }
-        Console.WriteLine();
-        for(int k = 0; k < ansNodes.Count(); k++)
-        {
-          Console.Write(ansNodes[k].val);
         }
         ListNode ans = ansNodes[0];
         temp = ans;
