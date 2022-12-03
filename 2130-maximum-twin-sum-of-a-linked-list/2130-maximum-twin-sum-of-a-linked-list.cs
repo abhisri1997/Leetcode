@@ -10,22 +10,45 @@
  * }
  */
 public class Solution {
-    public int PairSum(ListNode head) {
-        ListNode temp = head;
-        List<int> ls = new List<int>();
+    public ListNode reverseLL(ListNode curr) 
+    {
+      ListNode prev = null;
       
-        while(temp != null)
+      while(curr != null)
+      {
+        ListNode temp = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = temp;
+      }
+      return prev;
+    }
+    public ListNode findMidNode(ListNode head) 
+    {
+      ListNode slow = head;
+      ListNode fast = head;
+        
+      while(fast != null && fast.next != null)
+      {
+        slow = slow.next;
+        fast = fast.next.next;
+      }
+      return slow;
+    }
+    public int PairSum(ListNode head) 
+    {
+        ListNode mid = findMidNode(head);
+        ListNode tail = reverseLL(mid);
+        ListNode start = head;
+        ListNode end = tail;
+        int maxSum = 0;
+      
+        while(end != null)
         {
-          ls.Add(temp.val);
-          temp = temp.next;
-        }
-      
-        int i = 0, j = ls.Count() - 1;
-        int maxSum = int.MinValue;
-      
-        while(i <= j)
-        {
-          maxSum = Math.Max(ls[i++] + ls[j--], maxSum);
+          int sum = start.val + end.val;
+          maxSum = Math.Max(sum,maxSum);
+          end = end.next;
+          start = start.next;
         }
       return maxSum;
     }
