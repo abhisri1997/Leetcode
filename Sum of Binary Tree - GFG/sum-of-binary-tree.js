@@ -104,12 +104,14 @@ class Node{
 
 class Solution
 {
-    sum = 0;
     sumBT(root){
         if(root === null) return 0;
-        this.sum += root.data;
-        this.sumBT(root.left);
-        this.sumBT(root.right);
-        return this.sum;
+        
+        let ans = 0;
+        ans += this.sumBT(root.left);
+        ans += this.sumBT(root.right);
+        ans += root.data;
+        
+        return ans;
     }
 }  
