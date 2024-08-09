@@ -18,8 +18,6 @@ var groupAnagrams = function(strs) {
         }
     }
 
-    console.log(dict);
-
     for(let key in dict) {
         ans.push(dict[key]);
     }
