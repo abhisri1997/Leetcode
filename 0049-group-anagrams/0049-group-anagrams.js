@@ -3,37 +3,26 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-    const len = strs.length;
-    const mapWord = {};
+    const dict = {};
     const ans = [];
+    const strLen = strs.length;
 
-    for(let i = 0; i < len; i++) {
-        const currWord = strs[i];
-        // const sortedWord = currWord.split("").sort().join("");
-        const uniqueKey = getCharFreqArr(currWord);
-        if(!mapWord[uniqueKey]) {
-            mapWord[uniqueKey] = [currWord]
+    for(let i = 0; i < strLen; i++) {
+        const word = strs[i];
+        const key = word.split('').sort().join('');
+
+        if(!dict[key]) {
+            dict[key] = [word]
         } else {
-            mapWord[uniqueKey].push(currWord);
+            dict[key] = [...dict[key], word]
         }
     }
 
-    for(let key in mapWord) {
-        ans.push(mapWord[key]);
+    console.log(dict);
+
+    for(let key in dict) {
+        ans.push(dict[key]);
     }
+
     return ans;
 };
-
-function getCharFreqArr (word) {
-    const freqArr = new Array(26).fill(0);
-    const wordLen = word.length;
-
-    for(let i = 0; i < wordLen; i++) {
-        const currChar = word[i];
-        const currCharASCII = currChar.charCodeAt(0) - 'a'.charCodeAt(0);
-
-        freqArr[currCharASCII]++;
-    }
-
-    return freqArr;
-}
